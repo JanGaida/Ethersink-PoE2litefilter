@@ -1,0 +1,945 @@
+#################################################################################
+#
+#            EtherSink for Path of Exile II (Early Access)
+#            - A Dark and Atmospheric Loot Filter Based on NeverSink -
+#
+#                              {EtherSink v0.1}
+#                              {NeverSink v0.2.1}
+#
+#
+#   Disclaimer: This is a Work in Progress; use at your own risk.
+#
+#
+#   Motivation:
+#       The PoE-II atmosphere is phenomenal - your loot filter should
+#       enhance this Dark Souls-inspired experience.
+#
+#   Key Features:
+#       + Built upon NeverSink's powerful PoE-II LootFilter with 
+#         smart additions and improvements 
+#       + A visual theme that complements PoE-II's dark, immersive vibe
+#       + Atmospheric audio cues for a more engaging experience
+#         (Note: Ensure these are available as separate mp3/wav files)
+#
+#
+#        Tip 1: In VS Code, collapse all sections using the default hotkey 
+#               [CTRL] + [K], [CTRL] + [0]. 
+#        Tip 2: To remove the alpha channel when fully visible, 
+#               Search: "(\b\w+\b.*?\s\d+\s\d+\s\d+)\s255\b"
+#               Replace: "$1".
+#
+#################################################################################
+#
+#
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+# Overrides - Uniques, Valuables
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#
+Show # Uniques
+    Rarity Unique
+    SetFontSize 35
+    SetTextColor 255 162 51
+    SetBackgroundColor 69 10 22 242
+    SetBorderColor 196 84 0 255
+    MinimapIcon 0 Orange Star
+    PlayEffect Orange
+    CustomAlertSound "sfx\golds\6veryvaluable.mp3" 100
+Show # Mirror
+    Class "Currency"
+    BaseType "Mirror of Kalandra"
+    SetFontSize 45
+    SetTextColor 255 50 50 255
+    SetBackgroundColor 255 255 255 255
+    SetBorderColor 213 44 2 255
+    PlayEffect Red
+    MinimapIcon 1 Red Star
+    PlayAlertSound ShMirror 300
+Show # Divine
+    Class "Currency"
+    BaseType "Divine Orb"
+    SetFontSize 40
+    SetTextColor 255 50 50 255
+    SetBackgroundColor 255 255 255 255
+    SetBorderColor 213 44 2 255
+    PlayEffect Red
+    MinimapIcon 1 Red Star
+    PlayAlertSound ShDivine 300
+Show # Perfect Jeweller, Distilled Isolation & Suffering
+    Class "Currency"
+    BaseType "Perfect Jeweller's Orb" "Distilled Isolation" "Distilled Suffering"
+    SetFontSize 35
+    SetTextColor 255 50 50 255
+    SetBackgroundColor 255 255 255 255
+    SetBorderColor 213 44 2 255
+    PlayEffect Red
+    MinimapIcon 1 Red Star
+    PlayAlertSound 6 275
+Show # Quest
+    Class "Quest Items"
+    SetTextColor 0 0 0
+    SetBackgroundColor 22 212 75 242
+    PlayEffect Green
+    PlayAlertSound 16 125
+#
+#
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+# Gold
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#
+Show # 10000+
+    BaseType == "Gold"
+    StackSize >= 10000
+    SetFontSize 25
+    SetBackgroundColor 0 0 0 242
+    SetTextColor 249 231 162 242
+    SetBorderColor 254 225 203 144
+    PlayEffect Yellow Temp
+Show # 9999-5000
+    BaseType == "Gold"
+    StackSize >= 5000
+    SetFontSize 24
+    SetBackgroundColor 0 0 0 232
+    SetTextColor 249 231 162 232
+    SetBorderColor 254 225 203 144
+    PlayEffect Yellow Temp
+Show # 4999-2500
+    BaseType == "Gold"
+    StackSize >= 2500
+    SetFontSize 23
+    SetBackgroundColor 0 0 0 222
+    SetTextColor 249 231 162 222
+    SetBorderColor 254 225 203 144
+    PlayEffect Yellow Temp
+Show # 2499-1000
+    BaseType == "Gold"
+    StackSize >= 1000
+    SetFontSize 22
+    SetBackgroundColor 0 0 0 212
+    SetTextColor 249 231 162 212
+    SetBorderColor 254 225 203 144
+    PlayEffect Yellow Temp
+Show #  999-500
+    BaseType == "Gold"
+    StackSize >= 500
+    SetFontSize 21
+    SetBackgroundColor 0 0 0 212
+    SetTextColor 249 231 162 212
+    SetBorderColor 254 225 203 134
+    PlayEffect Yellow Temp
+Show #  499-250
+    BaseType == "Gold"
+    StackSize >= 250
+    SetFontSize 20
+    SetBackgroundColor 0 0 0 202
+    SetTextColor 249 231 162 202
+    SetBorderColor 254 225 203 104
+Show #  249-100
+    BaseType == "Gold"
+    StackSize >= 100
+    SetFontSize 19
+    SetBackgroundColor 0 0 0 202
+    SetTextColor 249 231 162 202
+    SetBorderColor 254 225 203 104
+Hide # Area 70+ hide below
+    BaseType == "Gold"
+    AreaLevel > 70
+    SetFontSize 21
+    SetBackgroundColor 0 0 0 202
+    SetTextColor 249 231 162 202
+    SetBorderColor 254 225 203 134
+Show #   99-50
+    BaseType == "Gold"
+    StackSize >= 50
+    SetFontSize 19
+    SetBackgroundColor 0 0 0 202
+    SetTextColor 249 231 162 202
+    SetBorderColor 254 225 203 104
+Show #   49-20
+    BaseType == "Gold"
+    StackSize >= 20
+    SetFontSize 18
+    SetBackgroundColor 0 0 0 202
+    SetTextColor 249 231 162 202
+    SetBorderColor 254 225 203 74
+Hide # Area 50+ hide below
+    BaseType == "Gold"
+    AreaLevel > 50
+    SetFontSize 21
+    SetBackgroundColor 0 0 0 202
+    SetTextColor 249 231 162 202
+    SetBorderColor 254 225 203 134
+Show #   24-0
+    BaseType == "Gold"
+    SetFontSize 18
+    SetBackgroundColor 0 0 0 202
+    SetTextColor 249 231 162 202
+    SetBorderColor 254 225 203 74
+#
+#
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+# Uncut Gems
+# >> Todo: Quality & Corruption
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#
+Show # Uncut Spirit
+    BaseType "Uncut Spirit Gem"
+    SetFontSize 27
+    SetTextColor 199 227 222
+    SetBorderColor 199 227 222 122
+    SetBackgroundColor 8 25 51 222
+    PlayEffect White
+    CustomAlertSound "sfx\d2\monster\diablo\castcold.wav" 75
+Show # Uncut Support
+    BaseType "Uncut Support Gem"
+    SetFontSize 27
+    SetTextColor 199 227 222
+    SetBorderColor 199 227 222 122
+    SetBackgroundColor 8 25 51 222
+    PlayEffect White Temp
+    CustomAlertSound "sfx\d2\monster\diablo\castcold.wav" 75
+Show # Uncut Skill 19+
+    BaseType "Uncut Skill Gem"
+    ItemLevel > 18
+    SetFontSize 35
+    SetTextColor 199 227 222
+    SetBorderColor 199 227 222 122
+    SetBackgroundColor 8 25 51 222
+    PlayEffect White
+    MinimapIcon 1 White Triangle
+    CustomAlertSound "sfx\d2\monster\diablo\castcold.wav" 125
+Show # Uncut Skill 19-
+    BaseType "Uncut Skill Gem"
+    SetFontSize 27
+    SetTextColor 199 227 222
+    SetBorderColor 199 227 222 122
+    SetBackgroundColor 8 25 51 222
+    PlayEffect White Temp
+    CustomAlertSound "sfx\d2\monster\diablo\castcold.wav" 75
+Show # Skill Gem
+    Class == "Skill Gems"
+    SetFontSize 27
+    SetTextColor 199 227 222
+    SetBorderColor 199 227 222 122
+    SetBackgroundColor 8 25 51 222
+    PlayEffect White Temp
+    CustomAlertSound "sfx\d2\monster\diablo\castcold.wav" 75
+Show # Support Gem
+    Class == "Support Gems"
+    SetFontSize 27
+    SetTextColor 199 227 222
+    SetBorderColor 199 227 222 122
+    SetBackgroundColor 8 25 51 222
+    PlayEffect White Temp
+    CustomAlertSound "sfx\d2\monster\diablo\castcold.wav" 75
+#
+#
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+# Socketables and Special Character Equipment
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#
+Show # {A} League specific socketables and jewels
+    BaseType "Soul Core" "Timeless"
+    SetFontSize 37
+    SetTextColor 168 239 238
+    SetBackgroundColor 16 29 27 242
+    MinimapIcon 2 Cyan Pentagon
+    PlayEffect Cyan
+    PlayAlertSound 16 100
+Show # {A}
+    Rarity Rare
+    BaseType == "Breach Ring"
+    SetFontSize 37
+Show # {A}
+    Rarity <= Magic
+    BaseType == "Breach Ring"
+    SetFontSize 32
+Show # {A} Rare Jewels
+    Class "Jewel"
+    Rarity >= Rare
+    SetFontSize 38
+    SetBackgroundColor 0 42 0 255
+    SetTextColor 255 255 255 255
+    SetBorderColor 153 255 0
+    PlayAlertSound 16 125
+    MinimapIcon 1 Green Pentagon
+    PlayEffect Green
+Show # {B} Non-Rare Jewels
+    Class "Jewel"
+    SetFontSize 32
+    SetBackgroundColor 0 42 0 255
+    SetTextColor 255 255 255 255
+    SetBorderColor 153 255 0
+    MinimapIcon 2 Green Pentagon
+    PlayEffect Green Temp
+    PlayAlertSound 16 125
+Show # {B} Rune
+    BaseType " Rune"
+    SetTextColor 0 240 190
+    SetBackgroundColor 16 29 27 242
+    PlayEffect Cyan Temp
+    PlayAlertSound 16 50
+Show # {B} Charm
+    BaseType " Charm"
+    SetTextColor 22 212 75
+    SetBackgroundColor 16 29 21 242
+    PlayEffect Green Temp
+    PlayAlertSound 16 50
+#
+#
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+# Scroll of Wisdom & Leveling
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Show # 20+ Scroll of Wisdom 
+    BaseType == "Scroll of Wisdom"
+    StackSize >= 20
+    SetFontSize 30
+    SetTextColor 140 97 71
+Show # 4+ Scroll of Wisdom 
+    BaseType == "Scroll of Wisdom"
+    StackSize >= 4
+    SetFontSize 27
+    SetTextColor 140 97 71
+Show # 1+ Scroll of Wisdom
+    BaseType == "Scroll of Wisdom"
+    StackSize >= 2
+    SetFontSize 25
+    SetTextColor 140 97 71
+Hide # AreaLvl 12+
+    BaseType == "Scroll of Wisdom"
+    AreaLevel >= 12
+    SetFontSize 25
+    SetTextColor 140 97 71
+Show
+    BaseType == "Scroll of Wisdom"
+    SetFontSize 25
+    SetTextColor 140 97 71
+#
+#
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+# Sanctum
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#
+Show # Relics
+    Class "Relic"
+    SetTextColor 0 0 0
+    SetBackgroundColor 22 212 75 242
+    MinimapIcon 2 Green Triangle
+    PlayEffect Green Temp
+    PlayAlertSound 16 75
+    CustomAlertSound "sfx\golds\12leveling.mp3" 125
+Show # Gold Key
+    BaseType "Gold Key"
+    SetFontSize 35
+    SetTextColor 0 0 0
+    SetBackgroundColor 22 212 75 242
+    MinimapIcon 0 Green Triangle
+    PlayEffect Green
+    PlayAlertSound 16 75
+Show # Silver Key
+    BaseType "Silver Key" 
+    SetFontSize 30
+    SetTextColor 0 0 0
+    SetBackgroundColor 22 212 75 242
+    MinimapIcon 0 Green Triangle
+    PlayEffect Green
+    PlayAlertSound 16 75
+Show # Bronze Key
+    BaseType "Bronze Key"
+    SetFontSize 25
+    SetTextColor 0 0 0
+    SetBackgroundColor 22 212 75 242
+    MinimapIcon 0 Green Triangle
+    PlayEffect Green
+    PlayAlertSound 16 75
+#
+#
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+# Fragments and Currency
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#
+Show # Currency Tier A
+    Class "Currency"
+    BaseType "Orb of Annulment" "Orb of Chance" "Greater Jeweller's Orb" "Distilled Fear" "Distilled Despair"
+    SetTextColor 240 243 243
+    SetBackgroundColor 213 44 29 242
+    PlayEffect Red
+    MinimapIcon 1 Red Cross
+    SetFontSize 40
+    CustomAlertSound "sfx\golds\5highmaps.mp3" 225
+Show # Currency Tier B+
+    Class "Currency"
+    BaseType "Exotic Coinage" "Exalted Orb" "Omen" "Distilled" "Catalyst" "Essence of"
+    SetTextColor 255 255 255
+    SetBackgroundColor 236 93 37 242
+    CustomAlertSound "sfx\golds\5highmaps.mp3" 125
+    PlayEffect Orange
+    MinimapIcon 1 Orange Cross
+    SetFontSize 40
+Show # Currency Tier B
+    Class "Currency"
+    BaseType "Gemcutter's Prism" "Vaal Orb" "Chaos Orb" "Lesser Jeweller's Orb" "Regal Orb" "Artificer's Orb" "Glassblower's Bauble" "Orb of Alchemy" "Simulacrum Splinter" "Breach Splinter" " Artifact" 
+    SetTextColor 255 255 255
+    SetBackgroundColor 236 93 37 242
+    CustomAlertSound "sfx\golds\5highmaps.mp3" 125
+    PlayEffect Orange
+    MinimapIcon 1 Orange Cross
+    SetFontSize 35
+Show # Currency Tier C
+    Class "Currency"
+    BaseType "Arcanist's Etcher" "Armourer's Scrap" "Blacksmith's Whetstone" "Orb of Augmentation" "Orb of Transmutation" "Regal Shard" "Chance Shard"
+    PlayAlertSound 2 75
+    SetTextColor 255 255 255
+    SetBackgroundColor 98 64 0 202
+    PlayEffect Grey Temp
+    MinimapIcon 2 Orange Cross
+    #DisableDropSound True
+Show # Currency Tier D
+    Class "Currency"
+    BaseType "Shard"
+Show # Currency Fallback
+    Class "Currency"
+    SetTextColor 0 0 0
+    SetBorderColor 0 0 0
+    SetBackgroundColor 255 255 255
+    PlayEffect Grey 
+    MinimapIcon 2 Grey Cross
+    PlayAlertSound 2 75
+    SetFontSize 35
+#
+#
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+# Mapping and Waystones
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#
+Show # Map Device
+    BaseType "Simulacrum" " Tablet" "Breachstone" "Cowardly Fate" "Deadly Fate" "Victorious Fate" "Expedition Logbook" "Test of" " Fragment"
+    SetTextColor 255 207 255
+    SetBorderColor 255 0 255 102
+    SetBackgroundColor 65 20 80 204
+    PlayEffect Purple
+    MinimapIcon 1 Purple Square
+    SetFontSize 35
+    CustomAlertSound "sfx\golds\12leveling.mp3" 150
+Show # Ascendancy
+    BaseType "Barya" "Ultimatum"
+    SetTextColor 255 207 255
+    SetBorderColor 255 0 255 102
+    SetBackgroundColor 65 20 80 204
+    PlayEffect Purple
+    MinimapIcon 1 Purple Square
+    SetFontSize 30
+    CustomAlertSound "sfx\golds\12leveling.mp3" 75
+Show # Tier 15-16
+    BaseType "Waystone"
+    WaystoneTier >= 15
+    SetFontSize 48
+    SetTextColor 255 0 0 
+    SetBackgroundColor 44 15 15 
+    SetBorderColor 255 0 0 162
+    PlayEffect Red
+    MinimapIcon 1 Red UpsideDownHouse
+    CustomAlertSound "sfx\golds\1maybevaluable.mp3" 250
+Show # Tier 10-14
+    BaseType "Waystone"
+    WaystoneTier >= 14
+    SetFontSize 43
+    SetTextColor 255 85 85 
+    SetBackgroundColor 44 15 15 
+    SetBorderColor 255 0 0 142
+    PlayEffect Red
+    MinimapIcon 2 Red UpsideDownHouse
+    CustomAlertSound "sfx\golds\1maybevaluable.mp3" 200
+Show # Tier 5-9
+    BaseType "Waystone"
+    WaystoneTier >= 5
+    SetFontSize 38
+    SetTextColor 255 170 170 
+    SetBackgroundColor 44 15 15 
+    SetBorderColor 255 0 0 122
+    PlayEffect Red
+    MinimapIcon 2 Red UpsideDownHouse
+    CustomAlertSound "sfx\golds\1maybevaluable.mp3" 150
+Show # Tier 0-4
+    BaseType "Waystone"
+    #WaystoneTier < 5
+    SetFontSize 33
+    SetTextColor 211 211 211 
+    SetBackgroundColor 44 15 15 
+    SetBorderColor 255 0 0 102
+    PlayEffect Red
+    MinimapIcon 2 Red UpsideDownHouse
+    CustomAlertSound "sfx\golds\1maybevaluable.mp3" 100
+#
+#
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+# Equipment/Weapon-Overrides
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+# NOTE: Comment out when you want to hide (ie. not show) an item
+#
+#------------------------------------SALVAGE------------------------------------- # todo: Make Strict-Levels? BaseType?
+Show # Rare + Socket + Quality
+    Rarity Rare
+    Sockets > 0
+    Quality > 0
+    SetFontSize 30
+    SetBorderColor 255 229 80
+Show # Magic + Socket + Quality
+    Rarity Magic
+    Sockets > 0
+    Quality > 0
+    SetFontSize 30
+    SetBorderColor 132 162 250
+Show # Rare + Socket
+    Rarity Rare
+    Sockets > 0
+    SetBorderColor 255 229 80
+Show # Magic + Socket
+    Sockets > 0
+    Rarity Magic
+    SetBorderColor 132 162 250
+Show # Rare + Quality
+    Rarity Rare
+    Quality > 0
+    SetBorderColor 255 229 80
+Show # Magic + Quality
+    Rarity Magic
+    Quality > 0
+    SetBorderColor 132 162 250
+Show # Quality
+    Sockets > 0
+    SetBorderColor 0 0 0
+Show # Socket
+    Quality > 0
+    SetBorderColor 0 0 0
+Show # Rare
+    Rarity Rare
+    SetBorderColor 255 229 80
+#Show # Magic
+#    Rarity Magic
+#    SetBorderColor 132 162 250
+#-----------------------------------LOWLEVEL-------------------------------------
+Hide # iLvl 49- AND aLvl 71+
+    Rarity Rare
+    DropLevel < 50
+    AreaLevel >= 71
+#
+#
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+# Equipment, Weapons and Flasks
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> # todo: Variations?
+#
+#--------------------------------------------------------------------------------
+# >>> Helmets
+#------------------------------------SPECIALS------------------------------------
+Show # +(8–16)% to all Elemental Resistances
+    Class "Helmets"
+    BaseType "Grand Visage" 
+    SetTextColor 255 255 255
+    SetBorderColor 255 255 255
+    PlayEffect White
+    MinimapIcon 2 White Star
+    PlayAlertSound 11 300
+Show # +(16–24) to all Attributes
+    Class "Helmets"
+    BaseType "Golden Wreath"
+    SetTextColor 255 255 255
+    SetBorderColor 255 255 255
+    PlayEffect White
+    MinimapIcon 2 White Star
+    PlayAlertSound 11 300
+#----------------------------------STR-DEX-INT-----------------------------------
+Hide
+    Class "Helmets"
+    BaseType "Golden Visage"
+    SetTextColor 255 255 255
+    SetBorderColor 255 255 255
+    PlayEffect White
+    MinimapIcon 2 White Star
+    PlayAlertSound 11 300
+#--------------------------------------STR---------------------------------------
+Hide
+    Class "Helmets"
+    BaseType "Rusted Greathelm" "Soldier Greathelm" "Wrapped Greathelm" "Spired Greathelm" "Elite Greathelm" "Warrior Greathelm" "Commander Greathelm" "Fierce Greathelm" "Dueling Greathelm" "Goliath Greathelm" "Guardian Greathelm" "Advanced Rusted Greathelm" "Advanced Soldier Greathelm" "Advanced Wrapped Greathelm" "Advanced Spired Greathelm" "Advanced Elite Greathelm" "Expert Soldier Greathelm" "Expert Spired Greathelm" "Expert Elite Greathelm"
+#--------------------------------------DEX---------------------------------------
+    Show
+        Class "Helmets"
+        BaseType "Shabby Hood" "Felt Cap" "Lace Hood" "Swathed Cap" "Hunter Hood" "Viper Cap" "Corsair Cap" "Leatherbound Hood" "Velvet Cap" "Covert Hood" "Armoured Cap" "Advanced Shabby Hood" "Advanced Felt Cap" "Advanced Lace Hood" "Advanced Swathed Cap" "Advanced Hunter Hood" "Expert Felt Cap" "Expert Swathed Cap" "Expert Hunter Hood"
+#--------------------------------------INT---------------------------------------
+Hide
+    Class "Helmets"
+    BaseType "Twig Circlet" "Wicker Tiara" "Beaded Circlet" "Chain Tiara" "Feathered Tiara" "Gold Circlet" "Coral Circlet" "Jade Tiara" "Noble Circlet" "Twilight Tiara" "Magus Tiara" "Advanced Twig Circlet" "Advanced Wicker Tiara" "Advanced Beaded Circlet" "Advanced Chain Tiara" "Advanced Feathered Tiara" "Expert Wicker Tiara" "Expert Chain Tiara" "Expert Feathered Tiara"
+#------------------------------------STR-DEX-------------------------------------
+Hide
+    Class "Helmets"
+    BaseType "Brimmed Helm" "Guarded Helm" "Visored Helm" "Cowled Helm" "Shielded Helm" "Closed Helm" "Decorated Helm" "Gallant Helm" "Advanced Brimmed Helm" "Advanced Guarded Helm" "Advanced Visored Helm" "Advanced Cowled Helm" "Advanced Shielded Helm" "Expert Guarded Helm" "Expert Cowled Helm" "Expert Shielded Helm"
+#------------------------------------STR-INT-------------------------------------
+Hide
+    Class "Helmets"
+    BaseType "Iron Crown" "Horned Crown" "Cultist Crown" "Martyr Crown" "Heavy Crown" "Spiritbone Crown" "Lavish Crown" "Templar Crown" "Advanced Iron Crown" "Advanced Horned Crown" "Advanced Cultist Crown" "Advanced Martyr Crown" "Advanced Heavy Crown" "Expert Horned Crown" "Expert Martyr Crown" "Expert Heavy Crown"
+#------------------------------------DEX-INT-------------------------------------
+Hide
+    Class "Helmets"
+    BaseType "Hewn Mask" "Face Mask" "Hooded Mask" "Veiled Mask" "Tribal Mask" "Solid Mask" "Shaded Mask" "Death Mask" "Advanced Hewn Mask" "Advanced Face Mask" "Advanced Hooded Mask" "Advanced Veiled Mask" "Advanced Tribal Mask" "Expert Face Mask" "Expert Veiled Mask" "Expert Tribal Mask"
+#
+#
+#--------------------------------------------------------------------------------
+# >>> Body Armours
+#------------------------------------SPECIALS------------------------------------
+Show # +(20–30) to Spirit
+    Class "Body Armours"
+    BaseType "Corvus Mantle" "Expert Shaman Mantle"
+    SetTextColor 255 229 80
+    SetBorderColor 255 229 80
+    PlayEffect Yellow
+    MinimapIcon 2 Yellow Star
+    PlayAlertSound 11 300
+Show # +(7–13)% to Chaos Resistance
+    Class "Body Armours"
+    BaseType "Devout Garb" "Expert Wayfarer Jacket"
+    SetTextColor 255 229 80
+    SetBorderColor 255 229 80
+    PlayEffect Yellow
+    MinimapIcon 2 Yellow Star
+    PlayAlertSound 11 300
+Show # 5% increased Movement Speed
+    Class "Body Armours"
+    BaseType  "Assassin Garb" "Expert Scalper's Jacket"
+    SetTextColor 255 229 80
+    SetBorderColor 255 229 80
+    PlayEffect Yellow
+    MinimapIcon 2 Yellow Star
+    PlayAlertSound 11 300
+Show # +1% to all Maximum Elemental Resistances
+    Class "Body Armours"
+    BaseType "Revered Vestments" "Expert Sacrificial Mantle"
+    SetTextColor 255 229 80
+    SetBorderColor 255 229 80
+    PlayEffect Yellow
+    MinimapIcon 2 Yellow Star
+    PlayAlertSound 11 300
+Show # +(20–25)% to Cold/Light/Fire Resistance
+    Class "Body Armours"
+    BaseType "Tournament Mail" "Expert Cloaked Mail"
+    SetTextColor 255 229 80
+    SetBorderColor 255 229 80
+    PlayEffect Yellow
+    MinimapIcon 2 Yellow Star
+    PlayAlertSound 11 300
+Show # +(60–80) to maximum Life
+    Class "Body Armours"
+    BaseType "Heroic Armour" "Expert Rogue Armour"
+    SetTextColor 255 229 80
+    SetBorderColor 255 229 80
+    PlayEffect Yellow
+    MinimapIcon 2 Yellow Star
+    PlayAlertSound 11 300
+Show # (40–50)% increased Mana Regeneration Rate
+    Class "Body Armours"
+    BaseType "Enlightened Robe" "Expert Keth Raiment"
+    SetTextColor 255 229 80
+    SetBorderColor 255 229 80
+    PlayEffect Yellow
+    MinimapIcon 2 Yellow Star
+    PlayAlertSound 11 300
+Show # (40–50)% faster start of Energy Shield Recharge
+    Class "Body Armours"
+    BaseType "Arcane Robe" "Expert Altar Robe"
+    SetTextColor 255 229 80
+    SetBorderColor 255 229 80
+    PlayEffect Yellow
+    MinimapIcon 2 Yellow Star
+    PlayAlertSound 11 300
+Show # (30–40)% increased Elemental Ailment Threshold
+    Class "Body Armours"
+    BaseType "Armoured Vest" "Expert Serpentscale Coat"
+    SetTextColor 255 229 80
+    SetBorderColor 255 229 80
+    PlayEffect Yellow
+    MinimapIcon 2 Yellow Star
+    PlayAlertSound 11 300
+Show # (20–30)% reduced Slowing Potency of Debuffs on You
+    Class "Body Armours"
+    BaseType "Mail Coat" "Expert Pathfinder Coat"
+    SetTextColor 255 229 80
+    SetBorderColor 255 229 80
+    PlayEffect Yellow
+    MinimapIcon 2 Yellow Star
+    PlayAlertSound 11 300
+Show # (30–40)% increased Stun Threshold
+    Class "Body Armours"
+    BaseType "Conqueror Plate" "Expert Vaal Cuirass"
+    SetTextColor 255 229 80
+    SetBorderColor 255 229 80
+    PlayEffect Yellow
+    MinimapIcon 2 Yellow Star
+    PlayAlertSound 11 300
+Show # Regenerate (1.5–2.5)% of Life per second
+    Class "Body Armours"
+    BaseType "Abyssal Cuirass" "Expert Steel Plate"
+    SetTextColor 255 229 80
+    SetBorderColor 255 229 80
+    PlayEffect Yellow
+    MinimapIcon 2 Yellow Star
+    PlayAlertSound 11 300
+Show # +(15–25)% to all Elemental Resistances
+    Class "Body Armours"
+    BaseType "Golden Mantle" 
+    SetTextColor 255 229 80
+    SetBorderColor 255 229 80
+    PlayEffect Yellow
+    MinimapIcon 2 Yellow Star
+    PlayAlertSound 11 300
+#----------------------------------STR-DEX-INT-----------------------------------
+Show
+    Class "Body Armours"
+    BaseType "Grand Regalia"
+    SetTextColor 255 229 80
+    SetBorderColor 255 229 80
+    PlayEffect Yellow
+    MinimapIcon 2 Yellow Star
+    PlayAlertSound 11 300
+#--------------------------------------STR---------------------------------------
+Hide
+    Class "Body Armours"
+    BaseType "Rusted Cuirass" "Fur Plate" "Iron Cuirass" "Raider Plate" "Maraketh Cuirass" "Steel Plate" "Full Plate" "Vaal Cuirass" "Juggernaut Plate" "Chieftain Cuirass" "Colosseum Plate" "Champion Cuirass" "Glorious Plate" "Advanced Fur Plate" "Advanced Iron Cuirass" "Advanced Maraketh Cuirass" "Advanced Steel Plate" "Advanced Full Plate" "Advanced Vaal Cuirass" "Expert Iron Cuirass"
+#--------------------------------------DEX---------------------------------------
+    Show
+        Class "Body Armours"
+        BaseType "Leather Vest" "Quilted Vest" "Pathfinder Coat" "Shrouded Vest" "Rhoahide Coat" "Studded Vest" "Scout's Vest" "Serpentscale Coat" "Corsair Vest" "Smuggler Coat" "Strider Vest" "Hardleather Coat" "Exquisite Vest" "Advanced Quilted Vest" "Advanced Pathfinder Coat" "Advanced Rhoahide Coat" "Advanced Studded Vest" "Advanced Scout's Vest" "Advanced Serpentscale Coat" "Expert Studded Vest"
+#--------------------------------------INT---------------------------------------
+Hide
+    Class "Body Armours"
+    BaseType "Tattered Robe" "Feathered Robe" "Hexer's Robe" "Bone Raiment" "Silk Robe" "Keth Raiment" "Votive Raiment" "Altar Robe" "Elementalist Robe" "Mystic Raiment" "Imperial Robe" "Plated Raiment" "Havoc Raiment" "Advanced Feathered Robe" "Advanced Hexer's Robe" "Advanced Silk Robe" "Advanced Keth Raiment" "Advanced Votive Raiment" "Advanced Altar Robe" "Expert Hexer's Robe"
+#------------------------------------STR-DEX-------------------------------------
+Hide
+    Class "Body Armours"
+    BaseType "Chain Mail" "Rogue Armour" "Vagabond Armour" "Cloaked Mail" "Explorer Armour" "Scale Mail" "Knight Armour" "Ancestral Mail" "Lamellar Mail" "Gladiator Armour" "Slayer Armour" "Advanced Chain Mail" "Advanced Rogue Armour" "Advanced Vagabond Armour" "Advanced Cloaked Mail" "Advanced Explorer Armour" "Advanced Scale Mail" "Expert Scale Mail"
+#------------------------------------STR-INT-------------------------------------
+Hide
+    Class "Body Armours"
+    BaseType "Pilgrim Vestments" "Pelt Mantle" "Mail Vestments" "Shaman Mantle" "Ironclad Vestments" "Sacrificial Mantle" "Cleric Vestments" "Tideseer Mantle" "Gilded Vestments" "Venerated Mantle" "Zenith Vestments" "Advanced Pilgrim Vestments" "Advanced Pelt Mantle" "Advanced Mail Vestments" "Advanced Shaman Mantle" "Advanced Ironclad Vestments" "Advanced Sacrificial Mantle" "Expert Pelt Mantle"
+#------------------------------------DEX-INT-------------------------------------
+Hide
+    Class "Body Armours"
+    BaseType "Hermit Garb" "Waxed Jacket" "Marabout Garb" "Wayfarer Jacket" "Anchorite Garb" "Scalper's Jacket" "Scoundrel Jacket" "Ascetic Garb" "Clandestine Jacket" "Monastic Garb" "Torment Jacket" "Advanced Hermit Garb" "Advanced Waxed Jacket" "Advanced Marabout Garb" "Advanced Wayfarer Jacket" "Advanced Anchorite Garb" "Advanced Scalper's Jacket" "Expert Waxed Jacket"
+#
+#
+#--------------------------------------------------------------------------------
+# >>> Gloves
+#------------------------------------SPECIALS------------------------------------
+Show # +(20–30) to maximum Life
+    Class "Gloves"
+    BaseType "Golden Bracers"
+    SetTextColor 255 229 80
+    SetBorderColor 255 229 80
+    PlayEffect Yellow
+    MinimapIcon 2 Yellow Star
+    PlayAlertSound 11 300
+#----------------------------------STR-DEX-INT-----------------------------------
+Show
+    Class "Gloves"
+    BaseType "Grand Manchettes"
+    SetTextColor 255 229 80
+    SetBorderColor 255 229 80
+    PlayEffect Yellow
+    MinimapIcon 2 Yellow Star
+    PlayAlertSound 11 300
+#--------------------------------------STR---------------------------------------
+Hide
+    Class "Gloves"
+    BaseType "Stocky Mitts" "Riveted Mitts" "Tempered Mitts" "Bolstered Mitts" "Moulded Mitts" "Detailed Mitts" "Titan Mitts" "Grand Mitts" "Advanced Riveted Mitts" "Advanced Tempered Mitts" "Advanced Bolstered Mitts" "Advanced Moulded Mitts" "Expert Riveted Mitts" "Expert Bolstered Mitts" "Expert Moulded Mitts"
+#--------------------------------------DEX---------------------------------------
+    Show
+        Class "Gloves"
+        BaseType "Suede Bracers" "Firm Bracers" "Bound Bracers" "Sectioned Bracers" "Spined Bracers" "Fine Bracers" "Hardened Bracers" "Engraved Bracers" "Advanced Firm Bracers" "Advanced Bound Bracers" "Advanced Sectioned Bracers" "Advanced Spined Bracers" "Expert Firm Bracers" "Expert Sectioned Bracers" "Expert Spined Bracers"
+#--------------------------------------INT---------------------------------------
+Hide
+    Class "Gloves"
+    BaseType "Torn Gloves" "Sombre Gloves" "Stitched Gloves" "Jewelled Gloves" "Intricate Gloves" "Pauascale Gloves" "Embroidered Gloves" "Adorned Gloves" "Advanced Sombre Gloves" "Advanced Stitched Gloves" "Advanced Jewelled Gloves" "Advanced Intricate Gloves" "Expert Sombre Gloves" "Expert Jewelled Gloves" "Expert Intricate Gloves"
+#------------------------------------STR-DEX-------------------------------------
+Hide
+    Class "Gloves"
+    BaseType "Ringmail Gauntlets" "Layered Gauntlets" "Doubled Gauntlets" "Plate Gauntlets" "Burnished Gauntlets" "Ornate Gauntlets" "Advanced Ringmail Gauntlets" "Advanced Layered Gauntlets" "Advanced Doubled Gauntlets" "Expert Ringmail Gauntlets" "Expert Layered Gauntlets" "Expert Doubled Gauntlets"
+#------------------------------------STR-INT-------------------------------------
+Hide
+    Class "Gloves"
+    BaseType "Rope Cuffs" "Aged Cuffs" "Goldcast Cuffs" "Diviner Cuffs" "Righteous Cuffs" "Signet Cuffs" "Advanced Rope Cuffs" "Advanced Aged Cuffs" "Advanced Goldcast Cuffs" "Expert Rope Cuffs" "Expert Aged Cuffs" "Expert Goldcast Cuffs"
+#------------------------------------DEX-INT-------------------------------------
+Hide
+    Class "Gloves"
+    BaseType "Gauze Wraps" "Linen Wraps" "Spiral Wraps" "Buckled Wraps" "Furtive Wraps" "Utility Wraps" "Advanced Gauze Wraps" "Advanced Linen Wraps" "Advanced Spiral Wraps" "Expert Gauze Wraps" "Expert Linen Wraps" "Expert Spiral Wraps"
+#
+#
+#--------------------------------------------------------------------------------
+# >>> Boots
+#------------------------------------SPECIALS------------------------------------
+Show # +(8–16)% to all Elemental Resistances
+    Class "Boots"
+    BaseType "Golden Caligae"
+    SetTextColor 255 229 80
+    SetBorderColor 255 229 80
+    PlayEffect Yellow
+    MinimapIcon 2 Yellow Star
+    PlayAlertSound 11 300
+#----------------------------------STR-DEX-INT-----------------------------------
+Show
+    Class "Boots"
+    BaseType "Grand Cuisses"
+    SetTextColor 255 229 80
+    SetBorderColor 255 229 80
+    PlayEffect Yellow
+    MinimapIcon 2 Yellow Star
+    PlayAlertSound 11 300
+#--------------------------------------STR---------------------------------------
+Hide
+    Class "Boots"
+    BaseType "Rough Greaves" "Iron Greaves" "Bronze Greaves" "Trimmed Greaves" "Stone Greaves" "Reefsteel Greaves" "Monument Greaves" "Totemic Greaves" "Advanced Iron Greaves" "Advanced Bronze Greaves" "Advanced Trimmed Greaves" "Advanced Stone Greaves" "Expert Iron Greaves" "Expert Trimmed Greaves" "Expert Stone Greaves"
+#--------------------------------------DEX---------------------------------------
+    Show
+        Class "Boots"
+        BaseType "Rawhide Boots" "Laced Boots" "Embossed Boots" "Steeltoe Boots" "Lizardscale Boots" "Flared Boots" "Leatherplate Boots" "Embroidered Boots" "Advanced Laced Boots" "Advanced Embossed Boots" "Advanced Steeltoe Boots" "Advanced Lizardscale Boots" "Expert Laced Boots" "Expert Steeltoe Boots" "Expert Lizardscale Boots"
+#--------------------------------------INT---------------------------------------
+Hide
+    Class "Boots"
+    BaseType "Straw Sandals" "Wrapped Sandals" "Lattice Sandals" "Silk Slippers" "Feathered Sandals" "Flax Sandals" "Studded Sandals" "Elaborate Sandals" "Advanced Wrapped Sandals" "Advanced Lattice Sandals" "Advanced Silk Slippers" "Advanced Feathered Sandals" "Expert Wrapped Sandals" "Expert Silk Slippers" "Expert Feathered Sandals"
+#------------------------------------STR-DEX-------------------------------------
+Hide
+    Class "Boots"
+    BaseType "Mail Sabatons" "Braced Sabatons" "Stacked Sabatons" "Covered Sabatons" "Flexile Sabatons" "Bold Sabatons" "Advanced Mail Sabatons" "Advanced Braced Sabatons" "Advanced Stacked Sabatons" "Expert Mail Sabatons" "Expert Braced Sabatons" "Expert Stacked Sabatons"
+#------------------------------------STR-INT-------------------------------------
+Hide
+    Class "Boots"
+    BaseType "Padded Leggings" "Secured Leggings" "Pelt Leggings" "Weaver Leggings" "Gilt Leggings" "Pious Leggings" "Advanced Padded Leggings" "Advanced Secured Leggings" "Advanced Pelt Leggings" "Expert Padded Leggings" "Expert Secured Leggings" "Expert Pelt Leggings"
+#------------------------------------DEX-INT-------------------------------------
+Hide
+    Class "Boots"
+    BaseType "Frayed Shoes" "Threaded Shoes" "Hunting Shoes" "Steelpoint Shoes" "Velour Shoes" "Bladed Shoes" "Advanced Frayed Shoes" "Advanced Threaded Shoes" "Advanced Hunting Shoes" "Expert Frayed Shoes" "Expert Threaded Shoes" "Expert Hunting Shoes"
+#
+#
+#--------------------------------------------------------------------------------
+# >>> Offhands and Shields
+#------------------------------------SPECIALS------------------------------------
+Show # Fishing Rods
+    Class "Fishing Rods"
+Show # Shield: +(11–19)% to Chaos Resistance
+    Class "Shield"
+    BaseType "Golden Flame"
+#--------------------------------------STR---------------------------------------
+Hide # One Hand Maces
+    Class "One Hand Maces"
+Hide # Two Hand Maces
+    Class "Two Hand Maces"
+Hide # Str-Shields
+    Class "Shield"
+    BaseType "Splintered Tower Shield" "Painted Tower Shield" "Braced Tower Shield" "Barricade Tower Shield" "Effigial Tower Shield" "Rampart Tower Shield" "Heraldric Tower Shield" "Stone Tower Shield" "Crucible Tower Shield" "Ancestor Tower Shield" "Phalanx Tower Shield" "Defiant Tower Shield" "Blacksteel Tower Shield" "Advanced Painted Tower Shield" "Advanced Braced Tower Shield" "Advanced Effigial Tower Shield" "Advanced Rampart Tower Shield" "Advanced Heraldric Tower Shield" "Advanced Stone Tower Shield" "Expert Braced Tower Shield" "Expert Rampart Tower Shield" "Expert Stone Tower Shield"
+#--------------------------------------DEX---------------------------------------
+    Show # Bows
+        Class "Bows"
+        BaseType " Bow"
+Hide # Claws
+    Class "Claws"
+    Show # Quivers
+        Class "Quivers"
+#--------------------------------------INT---------------------------------------
+Hide # Wands
+    Class "Wands"
+Hide # Staff
+    Class "Staves"
+    BaseType " Staff"
+Hide # Foci
+    Class "Foci"
+#------------------------------------STR-DEX-------------------------------------
+Hide # One Hand Axes
+    Class "One Hand Axes"
+Hide # Two Hand Axes
+    Class "Two Hand Axes"
+Hide # One Hand Swords
+    Class "One Hand Swords"
+Hide # Two Hand Swords
+    Class "Two Hand Swords"
+Hide # Crossbows
+    Class "Crossbows"
+    BaseType " Crossbow"
+Hide # Spears
+    Class "Spears"
+Hide # StrDex-Shields
+    Class "Shield"
+    BaseType "Hardwood Targe" "Pelage Targe" "Studded Targe" "Crescent Targe" "Chiseled Targe" "Feathered Targe" "Stratified Targe" "Carved Targe" "Mosaic Targe" "Aureate Targe" "Grand Targe" "Advanced Hardwood Targe" "Advanced Pelage Targe" "Advanced Studded Targe" "Advanced Crescent Targe" "Advanced Chiseled Targe" "Advanced Feathered Targe" "Expert Pelage Targe" "Expert Crescent Targe" "Expert Feathered Targe"
+#------------------------------------STR-INT-------------------------------------
+Hide # Sceptres
+    Class "Sceptres"
+Hide # Flails
+    Class "Flails"
+Hide # StrInt-Shields
+    Class "Shield"
+    BaseType "Blazon Crest Shield" "Sigil Crest Shield" "Emblem Crest Shield" "Jingling Crest Shield" "Sectarian Crest Shield" "Omen Crest Shield" "Wayward Crest Shield" "Seer Crest Shield" "Stoic Crest Shield" "Empyreal Crest Shield" "Deified Crest Shield" "Advanced Blazon Crest Shield" "Advanced Sigil Crest Shield" "Advanced Emblem Crest Shield" "Advanced Jingling Crest Shield" "Advanced Sectarian Crest Shield" "Advanced Omen Crest Shield" "Expert Sigil Crest Shield" "Expert Jingling Crest Shield" "Expert Omen Crest Shield"
+#------------------------------------DEX-INT-------------------------------------
+Hide # Daggers
+    Class "Daggers"
+Hide # Traps
+    Class "Traps"
+Hide # Quarterstaves
+    Class "Quarterstaves"
+#
+#
+#--------------------------------------------------------------------------------
+# >>> Flask 
+#------------------------------------RARITY--------------------------------------
+Hide # Normal - while Area 23+
+    Quality = 0
+    AreaLevel > 23
+    Rarity = Normal
+    Class "Flasks"
+    SetFontSize 27
+    SetTextColor 0 206 255
+    SetBackgroundColor 0 24 38 242
+Hide # Magic - while Area 70+
+    Quality = 0
+    AreaLevel > 70
+    Rarity <= Magic
+    Class "Flasks"
+    SetFontSize 27
+    SetTextColor 0 206 255
+    SetBackgroundColor 0 24 38 242
+Show # Default
+    Class "Flasks"
+    SetFontSize 25
+    SetTextColor 0 206 255
+    SetBackgroundColor 0 24 38 242
+    CustomAlertSound "sfx\d2\item\potionui.wav" 35
+#------------------------------------QUALITY-------------------------------------
+Show # 15+ Quality
+    Class "Flasks"
+    Quality >= 15
+    SetFontSize 27
+    SetTextColor 0 206 255
+    SetBackgroundColor 0 24 38 242
+    SetBorderColor 255 229 80
+    PlayEffect Blue Temp
+    CustomAlertSound "sfx\d2\item\potionui.wav" 55
+Show # 10+ Quality
+    Class "Flasks"
+    Quality >= 10
+    SetFontSize 27
+    SetTextColor 0 206 255
+    SetBackgroundColor 0 24 48 242
+    SetBorderColor 132 162 250
+    PlayEffect Blue Temp
+    CustomAlertSound "sfx\d2\item\potionui.wav" 55
+Show # 1+ Quality
+    Class "Flasks"
+    Quality >= 1
+    SetFontSize 27
+    SetTextColor 0 206 255
+    SetBackgroundColor 0 24 38 242
+    SetBorderColor 255 255 255
+    PlayEffect Blue Temp
+    CustomAlertSound "sfx\d2\item\potionui.wav" 55
+#
+#
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+# Meta
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#
+Show # Warning when using this filter after early access
+    BaseType == "Expert Laced Boots"
